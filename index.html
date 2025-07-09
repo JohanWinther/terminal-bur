@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Lovis - Hack the Cage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="webcam-container">
+      <img id="webcam" src="images/webcam-1.jpg" alt="Webcam view of cat">
+      <img id="tears" src="images/tears-left.gif" alt="Crying tears">
+      <img id="tears-right" src="images/tears-left.gif" alt="Crying tears right">
+    </div>
+    <div id="terminal-container">
+      <div id="terminal-output"></div>
+      <form id="terminal-form" autocomplete="off">
+        <span class="prompt">cage@terminal:~$</span>
+        <input type="text" id="terminal-input" autofocus autocomplete="off" />
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

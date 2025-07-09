@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #00ff00;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  height: 100vh;
+}
+#game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+#webcam-container {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  box-sizing: border-box;
+  height: auto;
+}
+#webcam {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 24px #000;
+  display: block;
+}
+#tears {
+  position: absolute;
+  left: 53%;
+  top: 48%;
+  width: 12%; /* Use percent so it scales with webcam */
+  height: auto;
+  transform: translate(-50%, -10%);
+  pointer-events: none;
+  z-index: 2;
+}
+#tears-right {
+  position: absolute;
+  left: 59%; /* Shifted to the right */
+  top: 49%;
+  width: 12%;
+  height: auto;
+  transform: translate(-50%, -10%) scaleX(-1); /* Mirror horizontally */
+  pointer-events: none;
+  z-index: 2;
+}
+#terminal-container {
+  flex: 1 1 auto;
+  background: #111;
+  padding: 24px 8px 0 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 240px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+#terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  font-size: 1.1em;
+}
+#terminal-form {
+  display: flex;
+  align-items: center;
+}
+.prompt {
+  color: #00ff00;
+  margin-right: 4px;
+  font-weight: bold;
+  font-family: inherit;
+}
+#terminal-input {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: inherit;
+  font-size: 1.1em;
+  outline: none;
+  width: 60%;
+}
+#terminal-input::placeholder {
+  color: #008800;
+  opacity: 0.7;
+}
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+.victory #webcam {
+  content: url('images/webcam-2.jpg');
+}
+.victory #tears {
+  display: none;
+}
+.victory #terminal-output {
+  color: #00ffcc;
+}
