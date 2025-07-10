@@ -1,4 +1,4 @@
-const PASSWORD = "pa"; // You can change the password here
+const PASSWORD = "rökpunk"; // You can change the password here
 
 const gameContainer = document.getElementById("game-container");
 const webcam = document.getElementById("webcam");
