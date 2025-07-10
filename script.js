@@ -11,6 +11,7 @@ const tearsRight = document.getElementById("tears-right");
 const fadeOverlay = document.getElementById("fade-black-overlay");
 
 // --- Password UI ---
+const prompt = document.getElementById("terminal-prompt");
 const passwordBoxes = document.getElementById("password-boxes");
 const keyboard = document.getElementById("keyboard");
 const passwordArea = document.getElementById("password-area");
@@ -33,7 +34,7 @@ function renderBoxes() {
   passwordBoxes.innerHTML = "";
   for (let i = 0; i < PASSWORD.length; i++) {
     const box = document.createElement("div");
-    box.className = "password-box";
+    box.classList.add("password-box", "terminal");
     // Show input in uppercase
     box.textContent = input[i] ? input[i].toUpperCase() : "";
     passwordBoxes.appendChild(box);
@@ -57,7 +58,7 @@ function renderKeyboard() {
     }
     row.forEach((key) => {
       const btn = document.createElement("button");
-      btn.className = "key-btn";
+      btn.classList.add("key-btn", "terminal");
       btn.textContent = key;
       btn.type = "button";
       btn.onclick = () => handleKey(key);
@@ -84,6 +85,7 @@ function handleKey(key) {
 
 function checkPassword() {
   if (input === PASSWORD) {
+    prompt.textContent = "Bur #51203 är öppnad.";
     passwordArea.classList.add("flash");
     fadeOverlay.classList.remove("fade-out");
     fadeOverlay.classList.add("fade-in");
@@ -91,9 +93,9 @@ function checkPassword() {
       victoryScreen();
     }, 5000);
   } else {
-    passwordArea.classList.add("shake");
+    passwordBoxes.classList.add("shake");
     setTimeout(() => {
-      passwordArea.classList.remove("shake");
+      passwordBoxes.classList.remove("shake");
       input = "";
       renderBoxes();
     }, 500);
@@ -136,16 +138,20 @@ function freezeTimestamp() {
 function victoryScreen() {
   freezeTimestamp();
   document.body.classList.add("victory");
-  // webcam.src = "images/webcam-2.jpg";
   webcamFeed.classList.remove("flicker");
-  [webcamNoise, webcamFenceOverlay, tearsLeft, tearsRight].forEach((el) => {
+  [
+    webcamNoise,
+    webcamFenceOverlay,
+    tearsLeft,
+    tearsRight,
+    passwordBoxes,
+    keyboard,
+  ].forEach((el) => {
     el.style.display = "none";
   });
   fadeOverlay.classList.remove("fade-in");
   fadeOverlay.classList.add("fade-out");
-  passwordArea.innerHTML =
-    '<div style="color:#00ff00;font-size:2em;margin-top:2em;">Lovis är fri!</div>';
-  passwordArea.style.opacity = 1;
+  prompt.textContent = "Katt #51203 är fri.";
 }
 
 // Initial render
