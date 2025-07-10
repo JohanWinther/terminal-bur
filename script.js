@@ -30,6 +30,11 @@ let frozenTimestamp = null;
 const WEBCAM_MODEL = "Panasonic WV-CW504 ";
 const WEBCAM_MODEL_VICTORY = "AXIS M3057-PLR ";
 
+// Generate a random cage number between 1000 and 9999
+const CAGE_NUMBER = Math.floor(Math.random() * 9000) + 1000;
+document.title = `Terminal - Bur #${CAGE_NUMBER}`;
+prompt.textContent = `[sudo] lösenord för bur #${CAGE_NUMBER}:`;
+
 function renderBoxes() {
   passwordBoxes.innerHTML = "";
   for (let i = 0; i < PASSWORD.length; i++) {
@@ -85,7 +90,7 @@ function handleKey(key) {
 
 function checkPassword() {
   if (input === PASSWORD) {
-    prompt.textContent = "Bur #51203 är öppnad.";
+    prompt.textContent = `Bur #${CAGE_NUMBER} är öppnad.`;
     passwordArea.classList.add("flash");
     fadeOverlay.classList.remove("fade-out");
     fadeOverlay.classList.add("fade-in");
@@ -151,9 +156,8 @@ function victoryScreen() {
   });
   fadeOverlay.classList.remove("fade-in");
   fadeOverlay.classList.add("fade-out");
-  prompt.textContent = "Katt #51203 är fri.";
+  prompt.textContent = `Katt #${CAGE_NUMBER} är fri.`;
 }
-
 // Initial render
 renderBoxes();
 renderKeyboard();
