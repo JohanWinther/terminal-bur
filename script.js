@@ -30,8 +30,7 @@ let frozenTimestamp = null;
 const WEBCAM_MODEL = "Panasonic WV-CW504 ";
 const WEBCAM_MODEL_VICTORY = "AXIS M3057-PLR ";
 
-// Generate a random cage number between 1000 and 9999
-const CAGE_NUMBER = Math.floor(Math.random() * 9000) + 1000;
+const CAGE_NUMBER = "0830";
 document.title = `Terminal - Bur #${CAGE_NUMBER}`;
 prompt.textContent = `[sudo] lösenord för bur #${CAGE_NUMBER}:`;
 
