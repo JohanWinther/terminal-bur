@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Lovis - Hack the Cage</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="game-container">
-    <div id="webcam-container">
-      <div id="webcam-timestamp"></div>
-      <div id="webcam-noise"></div>
-      <img id="webcam" src="images/webcam-1.jpg" alt="Webcam view of cat">
-      <img id="tears-left" src="images/tears-left.gif" alt="Crying tears left">
-      <img id="tears-right" src="images/tears-left.gif" alt="Crying tears right">
-      <div id="fade-black-overlay"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Lovis - Hack the Cage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="webcam-container">
+        <div id="webcam-timestamp"></div>
+        <div id="webcam-feed" class="flicker">
+          <div id="webcam-noise"></div>
+          <img id="webcam" src="images/webcam-1.jpg" alt="Webcam view of cat" />
+          <img
+            id="tears-left"
+            src="images/tears-left.gif"
+            alt="Crying tears left"
+          />
+          <img
+            id="tears-right"
+            src="images/tears-left.gif"
+            alt="Crying tears right"
+          />
+          <img
+            id="webcam-fence-overlay"
+            src="images/webcam-1-fence.png"
+            alt="Fence overlay"
+          />
+        </div>
+        <div id="fade-black-overlay"></div>
+      </div>
+      <div id="password-area">
+        <div id="password-boxes"></div>
+        <div id="keyboard"></div>
+      </div>
     </div>
-    <div id="password-area">
-      <div id="password-boxes"></div>
-      <div id="keyboard"></div>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
