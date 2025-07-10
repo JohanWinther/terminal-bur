@@ -1,7 +1,7 @@
 const PASSWORD = "pa"; // You can change the password here
 
 const webcam = document.getElementById('webcam');
-const tears = document.getElementById('tears');
+const tears = document.getElementById('tears-left');
 const gameContainer = document.getElementById('game-container');
 const tearsRight = document.getElementById('tears-right');
 const fadeOverlay = document.getElementById('fade-black-overlay');
